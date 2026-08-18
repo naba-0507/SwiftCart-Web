@@ -1,0 +1,27 @@
+<div class="product-card-v2" (click)="goToProduct()">
+  <div class="product-image-wrap">
+    <img [src]="product().image" class="product-image" [alt]="product().name">
+    @if (isOutOfStock()) {
+      <div class="out-of-stock-badge">Out of Stock</div>
+    }
+    <div class="hover-actions">
+       <button class="icon-btn icon-btn-add" [disabled]="isOutOfStock()" (click)="addToCart($event)" aria-label="Add to cart">
+        <i class="bi bi-cart-plus"></i>
+      </button>
+      <button class="icon-btn icon-btn-buy" [disabled]="isOutOfStock()" (click)="buyNow($event)" aria-label="Buy now">
+        <i class="bi bi-lightning-charge-fill"></i>
+      </button>
+    </div>
+  </div>
+  <div class="product-info">
+    <h6 class="product-title">{{ product().name }}</h6>
+    <div class="product-meta">
+      <span class="rating-inline">
+        @for (star of getStars(product().rating); track $index) {
+          <i class="bi" [class.bi-star-fill]="star === 'full'" [class.bi-star-half]="star === 'half'" [class.bi-star]="star === 'empty'"></i>
+        }
+      </span>
+      <span class="product-price">Rs. {{ product().price }}</span>
+    </div>
+  </div>
+</div>

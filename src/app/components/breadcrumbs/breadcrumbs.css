@@ -1,0 +1,19 @@
+.breadcrumbs {
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+}
+.crumb-link {
+  color: var(--color-secondary-border);
+  text-decoration: none;
+}
+.crumb-link:hover {
+  text-decoration: underline;
+}
+.crumb-sep {
+  margin: 0 6px;
+  color: #9ca3af;
+}
+.crumb-current {
+  color: var(--color-dark);
+  font-weight: 600;
+}

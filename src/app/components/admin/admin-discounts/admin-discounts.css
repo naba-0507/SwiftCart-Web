@@ -1,0 +1,26 @@
+.admin-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(26, 67, 76, 0.08);
+}
+.admin-table-wrap {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(26, 67, 76, 0.08);
+}
+.badge-active {
+  background: var(--color-secondary);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}
+.badge-inactive {
+  background: #e5e7eb;
+  color: #6b7280;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+}

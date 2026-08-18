@@ -1,0 +1,19 @@
+<div class="admin-login-page">
+  <form class="admin-login-card" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <h4 class="mb-3 text-center">Admin Login</h4>
+    @if (error) {
+      <div class="alert alert-danger py-2 small">{{ error }}</div>
+    }
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Username" [(ngModel)]="username" name="username" required />
+    </div>
+    <div class="mb-3">
+      <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required />
+    </div>
+    <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Log In</button>
+  </form>
+  <a routerLink="/" class="admin-view-store" title="View Store">
+  <i class="bi bi-bag"></i>
+  <span class="store-text">View Store</span>
+  </a>
+</div>

@@ -1,0 +1,12 @@
+.color-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid #ddd;
+  padding: 0;
+  cursor: pointer;
+}
+.color-swatch.active {
+  border-color: var(--color-dark);
+  box-shadow: 0 0 0 2px white inset;
+}

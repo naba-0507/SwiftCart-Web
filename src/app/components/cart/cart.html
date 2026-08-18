@@ -1,0 +1,30 @@
+<div class="container mt-4">
+<app-breadcrumbs [items]="crumbs"></app-breadcrumbs>
+  <h5>Your Cart</h5>
+  @if (cartService.items().length === 0) {
+    <div>Cart is empty.</div>
+  } @else {
+    <table class="table">
+      <thead>
+        <tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th><th></th></tr>
+      </thead>
+      <tbody>
+        @for (item of cartService.items(); track item.product.id) {
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td>Rs. {{ item.product.price }}</td>
+            <td>
+              <button class="btn btn-sm btn-outline-secondary" (click)="cartService.updateQuantity(item.product.id, -1)">-</button>
+              {{ item.quantity }}
+              <button class="btn btn-sm btn-outline-secondary" (click)="cartService.updateQuantity(item.product.id, 1)">+</button>
+            </td>
+            <td>Rs. {{ item.product.price * item.quantity | number:'1.2-2' }}</td>
+            <td><button class="btn btn-sm btn-danger" (click)="remove(item.product.id)">Remove</button></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    <h5>Total: Rs. {{ cartService.total() | number:'1.2-2' }}</h5>
+    <a routerLink="/checkout" class="btn btn-primary mt-2">Proceed to Checkout</a>
+  }
+</div>

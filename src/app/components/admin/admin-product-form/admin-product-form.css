@@ -1,0 +1,7 @@
+.admin-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 600px;
+  box-shadow: 0 2px 8px rgba(26, 67, 76, 0.08);
+}

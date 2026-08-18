@@ -1,0 +1,32 @@
+<h4 class="mb-4">Dashboard</h4>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <div class="stat-card">
+      <div class="stat-number">{{ totalProducts }}</div>
+      <div class="stat-label">Total Products</div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="stat-card">
+      <div class="stat-number">{{ inStockCount }}</div>
+      <div class="stat-label">In Stock</div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="stat-card">
+      <div class="stat-number">{{ outOfStockCount }}</div>
+      <div class="stat-label">Out of Stock</div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="stat-card">
+      <div class="stat-number">{{ activeDiscounts }}</div>
+      <div class="stat-label">Active Discount Codes</div>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 d-flex gap-2">
+  <a routerLink="/admin/products/new" class="btn btn-primary">+ Add Product</a>
+  <a routerLink="/admin/products" class="btn btn-outline-primary">Manage Products</a>
+</div>

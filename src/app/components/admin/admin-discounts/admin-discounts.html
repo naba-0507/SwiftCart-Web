@@ -1,0 +1,49 @@
+<h4 class="mb-4">Discount Codes</h4>
+
+<form class="admin-form mb-4" (ngSubmit)="addDiscount()" #discountForm="ngForm">
+  <div class="row align-items-end">
+    <div class="col-md-5 mb-2">
+      <label class="form-label small">Code</label>
+      <input type="text" class="form-control" [(ngModel)]="newCode" name="newCode" placeholder="e.g. SUMMER25" required />
+    </div>
+    <div class="col-md-4 mb-2">
+      <label class="form-label small">Discount %</label>
+      <input type="number" class="form-control" [(ngModel)]="newPercent" name="newPercent" min="1" max="100" required />
+    </div>
+    <div class="col-md-3 mb-2">
+      <button type="submit" class="btn btn-primary w-100" [disabled]="discountForm.invalid">Add Code</button>
+    </div>
+  </div>
+</form>
+
+<div class="admin-table-wrap">
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Discount</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (discount of discountService.discounts(); track discount.code) {
+        <tr>
+          <td class="fw-semibold">{{ discount.code }}</td>
+          <td>{{ discount.percent }}%</td>
+          <td>
+            <span [class]="discount.active ? 'badge-active' : 'badge-inactive'">
+              {{ discount.active ? 'Active' : 'Inactive' }}
+            </span>
+          </td>
+          <td class="text-end">
+            <button class="btn btn-sm btn-outline-secondary me-2" (click)="toggleActive(discount)">
+              {{ discount.active ? 'Deactivate' : 'Activate' }}
+            </button>
+            <button class="btn btn-sm btn-outline-danger" (click)="remove(discount)">Remove</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>

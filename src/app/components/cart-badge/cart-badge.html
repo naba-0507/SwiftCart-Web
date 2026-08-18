@@ -1,0 +1,8 @@
+<button class="btn btn-outline-primary position-relative" (click)="cartService.toggleCart()">
+  <i class="bi bi-cart3"></i>
+  @if (cartService.itemCount() > 0) {
+    <span class="badge rounded-pill cart-count position-absolute top-0 start-100 translate-middle">
+      {{ cartService.itemCount() }}
+    </span>
+  }
+</button>

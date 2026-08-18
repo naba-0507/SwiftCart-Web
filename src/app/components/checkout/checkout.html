@@ -1,0 +1,110 @@
+<div class="container mt-5 checkout-page">
+  @if (!orderPlaced) {
+    <app-breadcrumbs [items]="crumbs"></app-breadcrumbs>
+    <h4 class="text-center mb-4">Checkout</h4>
+    <div class="row">
+      <div class="col-md-7">
+        <h6 class="mb-3">Delivery Options</h6>
+        <div class="d-flex gap-2 mb-4">
+          <button type="button" class="btn delivery-option" [class.active]="deliveryMethod === 'delivery'" (click)="deliveryMethod = 'delivery'">
+            <i class="bi bi-truck me-2"></i>Delivery
+          </button>
+          <button type="button" class="btn delivery-option" [class.active]="deliveryMethod === 'pickup'" (click)="deliveryMethod = 'pickup'">
+            <i class="bi bi-geo-alt me-2"></i>Pick-Up
+          </button>
+        </div>
+
+        <form (ngSubmit)="placeOrder()" #checkoutForm="ngForm">
+          <div class="mb-3">
+            <input type="email" class="form-control" placeholder="Email*" [(ngModel)]="email" name="email" required />
+          </div>
+          <div class="row mb-3">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First Name*" [(ngModel)]="name" name="name" required />
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last Name*" [(ngModel)]="lastName" name="lastName" required />
+            </div>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Address*" [(ngModel)]="address" name="address" required />
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control" placeholder="City*" [(ngModel)]="city" name="city" required />
+          </div>
+          <div class="mb-4">
+            <input type="tel" class="form-control" placeholder="Phone Number*" [(ngModel)]="phone" name="phone" required />
+          </div>
+          <button type="submit" class="btn btn-primary w-100" [disabled]="checkoutForm.invalid">Save &amp; Continue</button>
+        </form>
+      </div>
+
+      <div class="col-md-5 mt-4 mt-md-0">
+        <div class="order-summary">
+            <h6 class="mb-3">In Your Cart</h6>
+
+            <div class="promo-box mb-3">
+                @if (!appliedDiscount()) {
+                <div class="d-flex gap-2">
+                <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    placeholder="Promo code"
+                    [(ngModel)]="promoCode"
+                    name="promoCode"
+                />
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="applyPromo()">Apply</button>
+                </div>
+                @if (promoError()) {
+                <div class="text-danger small mt-1">{{ promoError() }}</div>
+            }
+                } @else {
+                <div class="d-flex justify-content-between align-items-center promo-applied">
+                <span class="small">
+                <i class="bi bi-check-circle-fill me-1"></i>
+                {{ appliedDiscount()!.code }} applied ({{ appliedDiscount()!.percent }}% off)
+                </span>
+                <button type="button" class="btn-remove-promo" (click)="removePromo()" aria-label="Remove promo code">
+                <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+                }
+        </div>
+
+  <div class="d-flex justify-content-between small mb-1">
+    <span>Subtotal</span><span>Rs. {{ cartService.total() | number:'1.2-2' }}</span>
+  </div>
+  @if (appliedDiscount()) {
+    <div class="d-flex justify-content-between small mb-1 text-success">
+      <span>Discount ({{ appliedDiscount()!.percent }}%)</span>
+      <span>- Rs. {{ discountAmount() | number:'1.2-2' }}</span>
+    </div>
+  }
+  <div class="d-flex justify-content-between small mb-2">
+    <span>Delivery</span><span>Rs. {{ deliveryFee }}</span>
+  </div>
+  <div class="d-flex justify-content-between fw-bold mb-3">
+    <span>Total</span><span>Rs. {{ grandTotal() | number:'1.2-2' }}</span>
+  </div>
+  <hr>
+  @for (item of cartService.items(); track item.product.id) {
+    <div class="d-flex gap-2 mb-3">
+      <img [src]="item.product.image" class="summary-img" [alt]="item.product.name">
+      <div>
+        <div class="small fw-semibold">{{ item.product.name }}</div>
+        <div class="small text-muted">Rs. {{ item.product.price }}</div>
+        <div class="small text-muted">Qty: {{ item.quantity }}</div>
+      </div>
+    </div>
+  }
+</div>
+      </div>
+    </div>
+  } @else {
+    <div class="text-center">
+      <h5>Order Placed!</h5>
+      <p class="small">Thank you, {{ name }}. Your order will be delivered to {{ address }}, {{ city }}.</p>
+      <a routerLink="/" class="btn btn-primary mt-3">Continue Shopping</a>
+    </div>
+  }
+</div>

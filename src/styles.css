@@ -1,1 +1,196 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-primary: #C85A28;
+  --color-primary-hover: #A84519;
+  --color-secondary: #4DA193;
+  --color-secondary-border: #2e7a6f;
+  --color-tertiary: #c2b8a9;
+  --color-dark: #1A434C;
+  --color-accent: #F39C12;
+  --color-bg: #F7F9FA;
+  --color-card-img-bg: #EEF2F4;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-dark);
+}
+h1, .display-6 { font-size: 2.1rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+/* ===== Button system — uses Bootstrap 5.3's own CSS variables, not just background-color ===== */
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-primary-hover);
+  --bs-btn-hover-border-color: var(--color-primary-hover);
+  --bs-btn-active-bg: var(--color-primary-hover);
+  --bs-btn-active-border-color: var(--color-primary-hover);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--color-primary);
+  --bs-btn-disabled-border-color: var(--color-primary);
+  --bs-btn-disabled-opacity: 0.55;
+  font-weight: 600;
+}
+.btn-primary:hover {
+  box-shadow: 0px 8px 20px rgba(200, 90, 40, 0.3);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--color-dark);
+  --bs-btn-border-color: var(--color-dark);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-dark);
+  --bs-btn-hover-border-color: var(--color-dark);
+  --bs-btn-active-bg: var(--color-dark);
+  --bs-btn-active-border-color: var(--color-dark);
+}
+
+.btn-outline-secondary {
+  --bs-btn-color: var(--color-secondary-border);
+  --bs-btn-border-color: var(--color-secondary-border);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-secondary);
+  --bs-btn-hover-border-color: var(--color-secondary);
+  --bs-btn-active-bg: var(--color-secondary);
+  --bs-btn-active-border-color: var(--color-secondary);
+}
+
+.btn-outline-danger {
+  --bs-btn-color: var(--color-dark);
+  --bs-btn-border-color: var(--color-dark);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--color-dark);
+  --bs-btn-hover-border-color: var(--color-dark);
+}
+.btn-danger {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--color-dark);
+  --bs-btn-border-color: var(--color-dark);
+  --bs-btn-hover-bg: #123138;
+  --bs-btn-hover-border-color: #123138;
+}
+
+.bg-dark { background-color: var(--color-dark) !important; }
+
+/* ===== Shared product card system (Home, Catalog, Product Detail) ===== */
+.product-card-v2 {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+.product-image-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-card-img-bg);
+}
+.product-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card-v2:hover .product-image {
+  transform: scale(1.05);
+}
+.hover-actions {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.product-card-v2:hover .hover-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 0.95rem;
+}
+.icon-btn-add {
+  background: white;
+  color: var(--color-dark);
+}
+.icon-btn-add:hover {
+  background: var(--color-dark);
+  color: white;
+}
+.icon-btn-buy {
+  background: var(--color-primary);
+  color: white;
+}
+.icon-btn-buy:hover {
+  background: var(--color-primary-hover);
+  color: white;
+}
+.product-info {
+  padding-top: 10px;
+}
+.product-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+.product-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.rating-inline {
+  color: var(--color-accent);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+.product-price {
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.out-of-stock-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--color-dark);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+.icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

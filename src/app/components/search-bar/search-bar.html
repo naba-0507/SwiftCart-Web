@@ -1,0 +1,9 @@
+<div class="search-wrapper">
+  <i class="bi bi-search search-icon"></i>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search products..."
+    (input)="onSearch($any($event.target).value)"
+  />
+</div>

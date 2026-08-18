@@ -1,0 +1,6 @@
+<button class="btn btn-outline-primary position-relative" (click)="goToAdmin()" aria-label="Admin panel">
+  <i class="bi bi-person-gear"></i>
+  @if (authService.isLoggedIn()) {
+    <span class="admin-active-dot"></span>
+  }
+</button>

@@ -1,0 +1,21 @@
+.hero-wrapper {
+  padding: 0;
+}
+.hero-banner {
+  width: 100%;
+  background: var(--color-light);
+  text-align: center;
+  padding: 24px 20px;
+}
+.hero-img {
+  max-height: 250px;
+  width: auto;
+}
+.btn btn-primary btn-sm mt-2{
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+}

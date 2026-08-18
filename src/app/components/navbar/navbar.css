@@ -1,0 +1,17 @@
+nav.navbar {
+  background: var(--color-bg) !important;
+  border-bottom: 1px solid #e2e8ea;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}

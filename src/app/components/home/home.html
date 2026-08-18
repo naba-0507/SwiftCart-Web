@@ -1,0 +1,23 @@
+<app-hero></app-hero>
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h5 class="mb-0">Featured Products</h5>
+    <div class="carousel-arrows">
+      <button class="arrow-btn" (click)="prevPage()" aria-label="Previous products"><i class="bi bi-chevron-left"></i></button>
+      <button class="arrow-btn" (click)="nextPage()" aria-label="Next products"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </div>
+
+  <div class="row">
+  @for (product of visibleProducts(); track product.id) {
+    <div class="col-6 col-md-4 col-lg-3 mb-4">
+      <app-product-card [product]="product"></app-product-card>
+    </div>
+  }
+</div>
+
+  <div class="text-center my-4">
+    <a routerLink="/products" class="btn btn-primary px-4">Browse All Products</a>
+  </div>
+</div>

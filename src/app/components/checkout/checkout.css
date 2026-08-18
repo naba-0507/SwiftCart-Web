@@ -1,0 +1,39 @@
+.checkout-page { max-width: 900px; }
+.delivery-option {
+  flex: 1;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.delivery-option.active {
+  border-color: #000;
+  border-width: 2px;
+  font-weight: 600;
+}
+.order-summary {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+}
+.summary-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.promo-box {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+}
+.promo-applied {
+  color: var(--color-secondary-border);
+}
+.btn-remove-promo {
+  background: none;
+  border: none;
+  color: #6b7280;
+  font-size: 0.8rem;
+}
+.btn-remove-promo:hover {
+  color: var(--color-dark);
+}

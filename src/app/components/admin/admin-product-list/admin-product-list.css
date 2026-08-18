@@ -1,0 +1,28 @@
+.admin-table-wrap {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(26, 67, 76, 0.08);
+}
+.admin-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--color-card-img-bg);
+}
+.status-select {
+  width: auto;
+  display: inline-block;
+}
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.page-info {
+  font-size: 0.85rem;
+  color: #6b7280;
+}

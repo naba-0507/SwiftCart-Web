@@ -1,0 +1,10 @@
+.color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  display: inline-block;
+}
+.rating i {
+  color: var(--color-accent);
+}

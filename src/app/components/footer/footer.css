@@ -1,0 +1,16 @@
+.site-footer {
+  background: var(--color-dark);
+  color: white;
+  margin-top: 40px;
+}
+.site-footer h6 {
+  color: white;
+}
+.footer-links { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 8px; }
+.footer-links a { color: white; text-decoration: none; font-size: 0.85rem; }
+.footer-links a:hover { color: white; text-decoration: underline; }
+.social-icons { display: flex; gap: 14px; font-size: 1.3rem; }
+.social-icons a { color: white; }
+.footer-divider { margin: 0; border-color: rgba(255,255,255,0.15); }
+.footer-bottom-links a { color: white; text-decoration: none; font-size: 0.8rem; margin-left: 16px; }
